@@ -13,32 +13,34 @@ My Site是由Docker+SpringBoot2.0+Mybatis+thymeleaf等技术实现的个人网�
 
 #### 相关博客文章
 
-* 正在加急撰写中 ...
+- 正在加急撰写中 ...
 
 # Quick Start
 
-* [x] [1.如果部署My Site](https://github.com/WinterChenS/my-site/wiki/%E5%A6%82%E6%9E%9C%E9%83%A8%E7%BD%B2My-Site)
-
+- [x]  [1.如何部署My Site](https://github.com/WinterChenS/my-site/wiki/%E5%A6%82%E4%BD%95%E9%83%A8%E7%BD%B2My-Site)
 
 # Preview
 
 **首页：**
-![网站首页](http://ozlpw4ja9.bkt.clouddn.com/WX20180510-130818@2x.png)
+![网站首页](http://ozlpw4ja9.bkt.clouddn.com/WX20180512-181947@2x.png)
 **关于页：**
-![关于页](http://ozlpw4ja9.bkt.clouddn.com/upload/2018/05/4lf8mj32v6h82ok4nrh2pqud3n.png)
-**摄影作品页：**
-![摄影作品页](http://ozlpw4ja9.bkt.clouddn.com/WX20180510-131824@2x.png)
+![关于页](http://ozlpw4ja9.bkt.clouddn.com/WX20180512-182037@2x.png)
 **博客首页：**
-![博客首页](http://ozlpw4ja9.bkt.clouddn.com/WX20180510-131159@2x.png)
+![博客首页](http://ozlpw4ja9.bkt.clouddn.com/WX20180512-182057@2x.png)
 **登录页：**
 ![登录页](http://ozlpw4ja9.bkt.clouddn.com/upload/2018/05/tqad8k3tisi01qjtrv47k5nso4.png)
 **后台首页：**
 ![文章列表页](http://ozlpw4ja9.bkt.clouddn.com/upload/2018/05/0cgj75a9muia1rhvu8g32bc6dj.png)
 
-
 # Log
 
-2018-05-10：优化了作品页和博客页的header的样式，更加简约和美观
-2018-05-08：修复了编辑文章的一些bug
+- 2018-05-12：从新换了网站的主题
+
+- 2018-05-10：优化了作品页和博客页的header的样式，更加简约和美观
+
+
+- 2018-05-08：修复了编辑文章的一些bug
 2018-05-05: 优化了选择文章类型，增加了评论功能
+
+- 
 2018-05-03: 发布第一版
