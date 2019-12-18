@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="header">
+<head>
+    <meta charset="UTF-8">
+    <title>lilisheep & loloSun</title>
+</head>
+<div th:replace="site/head::head(${commons.site_title()},${commons.google_site_verification()}, ${commons.baidu_site_verification()})"></div>
+
+<body>
+<div th:replace="site/header::header"></div>
+<main role="main-home-wrapper" class="container">
+    <div class="row" style="position: relative">
+        <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
+            <article role="pge-title-content" >
+                <header>
+                    <h2><span>两只老虎</span> 小阳</h2>
+                </header>
+                <p>假如生活欺骗了你，不要悲伤，不要心急。</p>
+            </article>
+        </section>
+
+        <div class="clearfix"></div>
+        <ul class="grid-lod effect-2" id="grid">
+            <th:block th:each="article: ${archives.list}">
+
+                        <section class="blog-content">
+                            <a th:href="${commons.blogPermalink(article.cid)}">
+                                <figure>
+                                    <div class="post-date">
+                                        <th:block th:utext="${commons.fmtdate_en(article.created)}"/>
+                                    </div>
+                                    <img th:src="${commons.show_thumb(article.content) ?:commons.randomBlogPic(1322)}" style="height: 500px;width: 600px" alt=""
+                                         class="img-responsive"/>
+                                </figure>
+                            </a>
+                            <article>
+                                <th:block th:text="${article.title}"/>
+                            </article>
+                        </section>
+
+            </th:block>
+        </ul>
+        <!--<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid" style="position: absolute;margin-left: 20%">
+                <th:block th:each="archive : ${archives}">
+
+                        <figure class="effect-oscar" style="align">
+                            <img th:src="${commons.show_thumb(archive.content)}" class="img-responsive"/>
+                            <figcaption>
+                                <h3>
+                                    <th:block th:text="${archive.title}"/>
+                                </h3>
+                                <p>
+                                    <th:block th:utext="${commons.fmtdate_en(archive.created)}"/>
+                                </p>
+                            </figcaption>
+                            <article>
+                                <th:block th:text="${article.title}"></th:block>
+                            </article>
+
+                        </figure>
+
+
+                </th:block>
+            </ul>
+
+        </section>-->
+    </div>
+
+
+</main>
+
+</body>
+</html>

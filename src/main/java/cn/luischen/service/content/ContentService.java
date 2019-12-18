@@ -4,6 +4,8 @@ import cn.luischen.dto.cond.ContentCond;
 import cn.luischen.model.ContentDomain;
 import com.github.pagehelper.PageInfo;
 
+import java.util.List;
+
 /**
  * 文章服务层
  * Created by Donghua.Chen on 2018/4/29.
@@ -76,4 +78,10 @@ public interface ContentService {
      * @return
      */
     PageInfo<ContentDomain> searchArticle(String param, int pageNun, int pageSize);
+
+    /**
+     * 搜索首页内容：各个分类的最新一张
+     */
+    List<ContentDomain> getHomePageArticle();
+
 }

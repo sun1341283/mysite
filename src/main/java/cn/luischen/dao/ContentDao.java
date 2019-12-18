@@ -86,4 +86,9 @@ public interface ContentDao {
      */
     List<ContentDomain> searchArticle(@Param("param") String param);
 
+    /**
+     * 根据种类得到最新的文章
+     * @return
+     */
+    List<ContentDomain> getHomePageArticle();
 }

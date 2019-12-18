@@ -14,13 +14,13 @@
 <!-- main -->
 
 <main role="main-home-wrapper" class="container">
-  <div class="row">
+  <div class="row" >
     <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-      <article role="pge-title-content">
+      <article role="pge-title-content" >
         <header>
-          <h2><span>Luis</span> A Java Developer.</h2>
+          <h2><span>两只老虎</span> 小阳</h2>
         </header>
-        <p>maker of things for the web app, always focused on elegant simplicity, relentlessly learning by making mistakes.</p>
+        <p>假如生活欺骗了你，不要悲伤，不要心急。</p>
       </article>
     </section>
     <th:block th:each="archive,archiveStat : ${archives.list}">
@@ -28,8 +28,8 @@
         <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
           <figure class="effect-oscar"> <img th:src="${commons.show_thumb(archive.content)}" alt="" class="img-responsive"/>
             <figcaption>
-              <h2><th:block th:text="${archive.title}" ></th:block></h2>
-              <p><th:block th:utext="${commons.fmtdate_en(archive.created)}"></th:block></p>
+              <h2><th:block th:text="${archive.title}" /></h2>
+              <p><th:block th:utext="${commons.fmtdate_en(archive.created)}"/></p>
               <a th:href="${commons.photoPermalink(archive.cid)}">View more</a> </figcaption>
           </figure>
         </section>
@@ -43,11 +43,16 @@
         <th:block th:each="archive,archiveStat : ${archives.list}">
           <th:block th:if="${archiveStat.index != 1 && archiveStat.index % 2 == 0}">
             <li>
-              <figure class="effect-oscar"> <img th:src="${commons.show_thumb(archive.content)}" alt="" class="img-responsive"/>
+              <figure class="effect-oscar"><img th:src="${commons.show_thumb(archive.content)}" alt=""
+                                                class="img-responsive"/>
                 <figcaption>
-                  <h2><th:block th:text="${archive.title}" ></th:block></h2>
-                  <p><th:block th:utext="${commons.fmtdate_en(archive.created)}"></th:block></p>
-                  <a th:href="${commons.photoPermalink(archive.cid)}">View more</a> </figcaption>
+                  <h2>
+                    <th:block th:text="${archive.title}"></th:block>
+                  </h2>
+                  <p>
+                    <th:block th:utext="${commons.fmtdate_en(archive.created)}"></th:block>
+                  </p>
+                  <a th:href="${commons.photoPermalink(archive.cid)}">View more</a></figcaption>
               </figure>
             </li>
           </th:block>
