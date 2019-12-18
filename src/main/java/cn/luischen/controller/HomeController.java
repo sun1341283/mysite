@@ -79,6 +79,17 @@ public class HomeController extends BaseController{
         return this.blogIndex(request, 1, limit);
     }
 
+    @ApiOperation("宠物首页")
+    @GetMapping(value = {"/blog/","/pet/index"})
+    public String petIndex(
+            HttpServletRequest request,
+            @ApiParam(name = "limit", value = "页数", required = false)
+            @RequestParam(name = "limit", required = false, defaultValue = "11")
+                    int limit
+    ){
+        return this.blogIndex(request, 1, limit);
+    }
+
     @ApiOperation("blog首页-分页")
     @GetMapping(value = "/blog/page/{p}")
     public String blogIndex(
@@ -429,6 +440,11 @@ public class HomeController extends BaseController{
         return this.index(1, limit, request);
     }
 
+    @ApiOperation("主页")
+    @GetMapping(value = { "/home"})
+    public String home(HttpServletRequest request, @RequestParam(value = "limit", defaultValue = "12") int limit) {
+        return this.homeIndex(1,"home",limit,request);
+    }
     @ApiOperation("作品主页-分页")
     @GetMapping(value = "/photo/page/{p}")
     public String index(
@@ -448,6 +464,28 @@ public class HomeController extends BaseController{
         request.setAttribute("active", "work");
         return "site/index";
     }
+    @ApiOperation("主页")
+    @GetMapping(value = "/home/page/{p}/{category}")
+    public String homeIndex(
+            @ApiParam(name = "page", value = "页数", required = false)
+            @PathVariable(name = "p")
+                    int page,
+            @ApiParam(name = "category",value = "首页或其他",required = false)
+            @PathVariable(name = "category")
+                    String category,
+            @ApiParam(name = "limit", value = "条数", required = false)
+            @RequestParam(name = "limit", required = false, defaultValue = "9999")
+                    int limit,
+            HttpServletRequest request
+    ){
+        ContentCond contentCond = new ContentCond();
+        contentCond.setType(Types.ARTICLE.getType());
+        if ("home".equals(category)) contentCond.setCategory("首页");
+        PageInfo<ContentDomain> articles = contentService.getArticlesByCond(contentCond, page, limit);
+        //List<ContentDomain> articles = contentService.getHomePageArticle();
+        request.setAttribute("archives", articles);
+        return "site/home";
+    }
 
 
     @ApiOperation("作品内容")
@@ -462,6 +500,18 @@ public class HomeController extends BaseController{
         request.setAttribute("active","work");
         return "site/works-details";
     }
+
+    @ApiOperation("新主页-从网站上获取")
+    @GetMapping(value = "/new")
+    public String newHomePage(
+            @PathVariable(value = "cid",required = false)
+                    Integer cid,
+            HttpServletRequest request
+    ){
+
+        return "site/hd/newHome";
+    }
+
 
 
 

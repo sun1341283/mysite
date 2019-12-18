@@ -166,4 +166,10 @@ public class ContentServiceImpl implements ContentService {
         PageInfo<ContentDomain> pageInfo = new PageInfo<>(contentDomains);
         return pageInfo;
     }
+
+    @Override
+    public List<ContentDomain> getHomePageArticle() {
+        return contentDao.getHomePageArticle();
+    }
+
 }
