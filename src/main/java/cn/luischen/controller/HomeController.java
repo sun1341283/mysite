@@ -20,7 +20,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
@@ -76,18 +78,20 @@ public class HomeController extends BaseController{
             @RequestParam(name = "limit", required = false, defaultValue = "11")
                     int limit
     ){
-        return this.blogIndex(request, 1, limit);
+        return this.blogIndex(request, 1, limit,null);
     }
 
-    @ApiOperation("宠物首页")
-    @GetMapping(value = {"/blog/","/pet/index"})
+
+    @ApiOperation("根据内容分类得到blog")
+    @GetMapping(value = {"/blog/{category}"})
     public String petIndex(
             HttpServletRequest request,
             @ApiParam(name = "limit", value = "页数", required = false)
             @RequestParam(name = "limit", required = false, defaultValue = "11")
-                    int limit
+                    int limit,
+            @PathVariable(value = "category") String category
     ){
-        return this.blogIndex(request, 1, limit);
+        return this.blogIndex(request, 1, limit,category);
     }
 
     @ApiOperation("blog首页-分页")
@@ -97,11 +101,14 @@ public class HomeController extends BaseController{
             @PathVariable("p")
                     int p,
             @RequestParam(value = "limit", required = false, defaultValue = "11")
-                    int limit
+                    int limit,
+            @RequestParam(value = "category",required = false)
+                    String category
     ){
         p = p < 0 || p > WebConst.MAX_PAGE ? 1 : p;
         ContentCond contentCond = new ContentCond();
         contentCond.setType(Types.ARTICLE.getType());
+        if (category != null) contentCond.setCategory(category);
         PageInfo<ContentDomain> articles = contentService.getArticlesByCond(contentCond, p, limit);
         request.setAttribute("articles", articles);//文章列表
         request.setAttribute("type", "articles");
@@ -109,6 +116,8 @@ public class HomeController extends BaseController{
 //        this.blogBaseData(request, contentCond);//获取公共分类标签等数据
         return "site/blog";
     }
+
+
 
     @ApiOperation("文章内容页")
     @GetMapping(value = "/blog/article/{cid}")

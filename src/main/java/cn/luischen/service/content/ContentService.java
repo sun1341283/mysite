@@ -3,6 +3,7 @@ package cn.luischen.service.content;
 import cn.luischen.dto.cond.ContentCond;
 import cn.luischen.model.ContentDomain;
 import com.github.pagehelper.PageInfo;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.util.List;
 

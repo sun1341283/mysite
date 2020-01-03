@@ -49,8 +49,9 @@ public class WebLogAspect {
         LOGGER.info("URL : " + request.getRequestURL().toString());
         LOGGER.info("HTTP_METHOD : " + request.getMethod());
         LOGGER.info("IP : " + request.getRemoteAddr());
-        LOGGER.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        LOGGER.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());//方法的类名+方法名
         LOGGER.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
+
     }
 
     @AfterReturning(returning = "ret", pointcut = "webLog()")
