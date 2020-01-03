@@ -51,6 +51,9 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: cn.luischen.model
+  configuration:
+    local-cache-scope: session
+    cache-enabled: false
 
 
 #pagehelper
@@ -64,6 +67,8 @@ pagehelper:
 logging:
   level:
     cn.luischen.dao : DEBUG
+    cn.luischen.controller : DEBUG
+  path: /Users/sunlong/文档
 
 swagger:
   show: true

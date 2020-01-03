@@ -116,7 +116,7 @@
 
     <!-- 根据条件查询文章 -->
     <select id="getArticlesByCond" resultType="cn.luischen.model.ContentDomain"
-            parameterType="cn.luischen.dto.cond.ContentCond">
+            parameterType="cn.luischen.dto.cond.ContentCond" >
         SELECT
         <include refid="BASE_COLUMN"/>
         FROM
