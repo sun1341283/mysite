@@ -78,4 +78,4 @@ qiniu:
   serectkey: "hAj2n2Qf7Ld0twsMBeKzbKBBYYKxaF5b7KvZU-AC"
   bucket: "lolosun"
   cdn:
-    url: "sunlonga.com/"
+    url: "http://sunlonga.com/"
