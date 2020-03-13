@@ -29,7 +29,7 @@ public class WebConst {
     /**
      * aes加密加盐
      */
-    public static String AES_SALT = "sun3455235qwer123zxc.";
+    public static String AES_SALT = "sun3455235q.lmi0";
 
     /**
      * 最大获取文章条数
